@@ -1,0 +1,127 @@
+<div id='center_top'>
+<div style='float:left;'>
+<div class='left_block' id='user'>
+{if ($isLogged)}
+({$userId}). Hello 
+<a href='{$smarty.const.BASE_PATH}/users/one/{$userId}'>{$userName}</a>
+<br />
+<a href='{$smarty.const.BASE_PATH}/admins/'>Administration</a><br />
+<a href='{$smarty.const.BASE_PATH}/users/logout/'>Logout</a>
+{else}
+	
+	
+	
+	<form action="{$smarty.const.BASE_PATH}/users/login/" method="post" name='login'>
+	<input type='text' name="user" value="" /><br />
+	<input type='password' name="pass" value="" /><br />
+	<input type='submit' value='LOG IN' style='padding:0px; margin:0px; margin-top:5px; border:1px solid; width:110px; height:20px;' />
+	</form>
+	
+	
+{/if}
+
+</div>
+<div style='clear:left;'><br /></div>
+<!-- <div class='left_block'>
+	a
+	</div> -->
+</div>
+
+<div class='right'>
+<div class='right_block'>
+	<u>BBframe-work features:</u> 
+	<ul style='list-style-type:none; padding:5px;'>
+	<li>1. Easy installation</li>
+	<li>2. Strong and robust core</li>
+	<li>3. Quick development process</li>
+	<li>4. Security  architecture</li>
+	<li>5. High performance</li>
+	</ul>
+	<a href='#moreinfo' class='moreinfo' style='float:right;'>more details</a><br />
+	<div style='width:200px;' id='morefeatures'>
+	1. OO PHP 5 code<br />
+	2. MVC design pattern<br />
+	3. Custom session handler<br />
+	4. DAL with SCRUD pattern<br />
+	5. CKEditor, Smarty, Jquery integrated<br />
+	6. 	Modular architecture
+	</div>
+</div></div>
+
+<div class='center_center'>
+<h3>{$pageName}</h3>
+&nbsp;{$pageDescription}
+{if ($outArray|@count) > 0 }
+<ul style='list-style-type:none;'>
+{foreach from=$outArray key=k item=v}
+    <li><a href='{$smarty.const.BASE_PATH}/{$mmId}s/one/{$v[0]}/'>{$v[1]}</a></li>
+{/foreach}
+</ul> 
+{/if}
+</div>
+<div style='clear:both;'></div>
+<br />
+</div>
+
+
+<!-- form for add article begin from here -->
+	<form action="{$smarty.const.BASE_PATH}/{$addForm}/add/" method="post" name='addArticle'>
+	<input type='text' name="{$addForm}Name" value="" size='100'><br /><br />
+	<textarea name='{$addForm}Description' id='description' row='5'>example text</textarea>
+	
+	{literal} 
+				<script type="text/javascript">
+			//<![CDATA[
+ 
+			CKEDITOR.replace( 'description',
+    			{
+        		toolbar :
+        		[
+            	['Styles', 'Format'],
+            	['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', '-', 'About']
+        		]
+    });
+ 
+			//]]>
+			</script>
+	{/literal}
+	
+	<input type='submit' value='add {$addForm}'>
+	</form>
+<!--  END form -->
+
+
+
+<div style='clear:right;'></div>
+<br />
+<h3>{$slideMessage}</h3>
+
+<!-- slider  -->
+{if (isset($slideArr))}
+<div id="slideshow">
+	<div class="slides">
+	<ul>
+	{foreach from=$slideArr key=k item=v}
+		<li id='slide{$k}'><b>{$v[1]}</b><br ><p>{$v[2]}</p><br /></li>
+	{/foreach}
+	</ul>
+	</div>
+		<div style='float:right;'><a href='#' style='color:#ccdcdc'>Pause</a></div>
+	
+	<ul class="slides-nav">
+	{foreach from=$slideArr key=k item=v}
+		<li><a href='#slide{$k}'>{math equation="x + 1" x=$k}</a></li>
+	{/foreach}
+	</ul>
+
+</div>
+{/if}
+
+
+
+{if (isset($subMenu))}
+SUBmenu : ->
+{foreach from=$subMenu key=k item=v}
+    <a href='{$smarty.const.BASE_PATH}/{$v}'>{$k}</a> &nbsp;&nbsp;&nbsp; 
+{/foreach}
+{/if}

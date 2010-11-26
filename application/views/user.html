@@ -1,0 +1,70 @@
+<div id='center_top'>
+<div style='float:left;'>
+<div class='left_block' id='user'>
+{if ($isLogged)}
+{$userId}. Hello 
+<a href='{$smarty.const.BASE_PATH}/users/one/{$userId}'>{$userName}</a>
+<br />
+<a href='{$smarty.const.BASE_PATH}/users/logout/'>Logout</a>
+{else}
+	
+	
+	
+	<form action="{$smarty.const.BASE_PATH}/users/login/" method="post" name='login'>
+	UserS:<br />
+	<input type='text' name="user" value="" /><br />
+	<input type='password' name="pass" value="" /><br />
+	<input type='submit' value='LOG IN' style='padding:0px; margin:0px; border:1px solid;' />
+	</form>
+	
+	
+{/if}
+
+</div></div>
+
+<div class='right_block'>
+	Requirement: WAM P(5+)<br />
+	<ul style='list-style-type:none;'>
+	<li>&nbsp;Session Handler</li>
+	<li>&nbsp;Data Access Layer(DAL)</li>
+	<li>SCRUD pattern</li>
+	<li>&nbsp;MVC design</li>
+	<li>CKEditor 3.0(WYSIWYG)</li>
+	<li>&nbsp;Smarty {$smarty.version}</li>
+	{if isset($modelMess)}<li>{$modelMess}</li>{/if}
+	</ul>
+	{$template}
+</div>
+
+<div class='center_center'>
+<h3>PageName:&nbsp;{$pageName}</h3>
+	<form action="{$smarty.const.BASE_PATH}/users/{$formUrl}/" method="post" name='login'>
+
+	<input type='text' name="user" value="" /><br />
+	<input type='password' name="pass" value="" /><br />
+	<input type='submit' value='reg/edit' style='padding:0px; margin:0px; border:1px solid;' />
+	</form>
+</div>
+<div style='clear:both;'></div>
+<br />
+
+
+{if (isset($outArray))}
+<ul>
+{foreach from=$outArray key=k item=v}
+    <li><a href='{$smarty.const.BASE_PATH}/articles/one/{$v[0]}/'>{$v[1]}</a></li>
+{/foreach}
+</ul> 
+{/if}
+</div>
+<div style='clear:right;'></div>
+<br /><br />
+
+<br />
+
+{if (isset($subMenu))}
+SUBmenu : ->
+{foreach from=$subMenu key=k item=v}
+    <a href='{$smarty.const.BASE_PATH}/{$v}'>{$k}</a> &nbsp;&nbsp;&nbsp; 
+{/foreach}
+{/if}

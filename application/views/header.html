@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>{$pageTitle}</title>
+{$includeCSS} 
+{$includeJS}
+{literal} 
+        <link rel="stylesheet" href="http://bbframe.com/include/slideshow.css" type="text/css" media="screen" />        
+        <link rel="stylesheet" href="http://bbframe.com/include/jquery.fancybox-1.3.3.css" type="text/css" media="screen" /> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="http://bbframe.com/include/jquery.cycle.js"></script>
+        <script type="text/javascript" src="http://bbframe.com/include/slideshow.js"></script>
+        <script type="text/javascript" src="http://bbframe.com/include/jquery.fancybox-1.3.3.pack.js"></script>
+        <script type="text/javascript" src="http://localhost/bbframe_base/include/scripts.js"></script>
+
+{/literal}
+</head>
+<body>
+<div id='header'><span id='logo'>&nbsp;&lt;BBframe / work&gt;</span>
+
+	<div id='main_menu'>
+
+	<ul>
+		{foreach from=$main_menu key=k item=v}
+		{if ($k) == ($mmKey)}
+		<li><a href='{$smarty.const.BASE_PATH}/{$v}' id='current'>{$k}</a></li>
+		{else}
+		<li><a href='{$smarty.const.BASE_PATH}/{$v}'>{$k}</a></li>
+		{/if}
+		{/foreach}
+	</ul>
+		<div id='user_menu' style='float:right;color:#ccdcdc;font-size:14px;'>:: 
+		{foreach from=$user_menu key=k item=v}
+		<a href='{$smarty.const.BASE_PATH}/users/{$v}'>{$k}</a> :: 
+		{/foreach}
+</div>	
+	</div>
+	<div id='sub_menu'>
+	<ul>
+		{foreach from=$sub_menu key=k item=v}
+		{if ($k) == ($smKey)}
+		<li><a href='{$smarty.const.BASE_PATH}/{$v}' id='current'>{$k}</a></li>
+		{else}
+		<li><a href='{$smarty.const.BASE_PATH}/{$v}'>{$k}</a></li>
+		{/if}
+		{/foreach}
+	</ul>
+	</div>
+</div>
+<div style='clear:both;'></div>
+<br />
+<div id='center'>

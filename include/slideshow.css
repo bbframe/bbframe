@@ -1,0 +1,66 @@
+/* ---------------------------------------------------- */
+/* SLIDESHOW
+/* ---------------------------------------------------- */
+#slideshow {
+width: 75% ;
+background-color: #fff;
+border: 3px solid #005050;}
+
+#slideshow ul {
+margin: 0;
+padding: 0;
+list-style-type: none;
+height: 1%; /* IE fix */}
+
+#slideshow ul:after {
+content: ".";
+clear: both;
+display: block;
+height: 0;
+visibility: hidden;}            
+
+/* ---------------------------------------------------- */
+/* SLIDESHOW > SLIDES
+/* ---------------------------------------------------- */
+#slideshow .slides {
+overflow: hidden;
+width: 95% ;}
+
+#slideshow .slides ul {
+width: 2880px;}
+
+#slideshow .slides li {
+width: 50%;
+float: left;
+padding: 20px;}
+
+#slideshow .slides h2 {
+margin-top: 0;}
+
+/* ---------------------------------------------------- */
+/* SLIDESHOW > NAVIGATION
+/* ---------------------------------------------------- */
+#slideshow .slides-nav {
+background-color: #005050;
+border-top: 2px solid #ccc;}
+
+#slideshow .slides-nav li {
+float: left;}
+
+#slideshow .slides-nav li a {
+display: block;
+padding: 5px 10px;
+color: #ccdcdc;
+outline: none;}
+
+.js #slideshow .slides-nav li.on,
+.js #slideshow .slides-nav li.on a {
+background-color: #fff;
+color:#005050;
+}
+
+.js #slideshow .slides-nav li.on a 
+{
+position: relative;
+top: -2px;
+}
